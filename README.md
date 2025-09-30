@@ -4,6 +4,8 @@
 
 Original commit tree: https://github.com/ultralytics/ultralytics/tree/765b98f44eb662c012e3470546bf95ea39345ee3
 
+The changes that have been applied to this specific version of ultralytics are tracked in the ultralytics [CHANGELOG](./ultralytics/CHANGES.md).
+
 ### Installation
 
 0. Requirements:
@@ -14,7 +16,8 @@ Original commit tree: https://github.com/ultralytics/ultralytics/tree/765b98f44e
 1. Create a conda environment:
 
 ```bash
-conda create env -n xray_ultralytics python=3.11 -y
+cd ultralytics
+conda create -n xray_ultralytics python=3.11 -y
 ```
 
 2. Install required packages
@@ -27,7 +30,57 @@ pip install -e .
 
 Read the provided [scripts file](./ultralytics/scripts.md) on how to train and validate the ultralytics-based models.
 
-The changes that have been applied to this specific version of ultralytics are tracked in the ultralytics [CHANGELOG](./ultralytics/CHANGES.md).
+## dino
+
+Original commit tree: https://github.com/open-mmlab/mmdetection/tree/fe3f809a0a514189baf889aa358c498d51ee36cd
+
+The changes that have been applied to this specific version of mmdetection are tracked in the mmdetection [CHANGELOG](./dino/mmdetection/CHANGES.md).
+
+### Installation
+
+Follow the official installation guide from mmdetection [here](https://mmdetection.readthedocs.io/en/latest/get_started.html). Alternatively, follow the guide below.
+
+0. Requirements:
+* Python 
+
+1. Create a conda environment and activate it:
+
+```bash
+conda create -n xray_dino python=3.11 -y
+conda activate xray_dino
+```
+
+1. Install required packages
+
+```bash
+conda install pytorch==2.1.1 torchvision==0.16.1 pytorch-cuda=12.1 -c pytorch -c nvidia
+```
+
+2. Install mmengine and mmcv
+
+```bash
+pip install -U openmim
+mim install mmengine
+mim install "mmcv==2.1.0"
+```
+
+3. Install mmdet
+
+```bash
+cd mmdetection
+pip install -e .
+```
+
+4. Install correct numpy version
+
+```bash
+pip install numpy==1.16.2
+```
+
+### Usage
+
+Read the provided [scripts file](./dino/mmdetection/scripts.md) on how to train and validate the DINO model.
+
 
 ## Model weights
 

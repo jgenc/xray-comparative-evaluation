@@ -1,4 +1,4 @@
-### Changelog
+# Changelog
 
 Changes:
 * `cfg` folder contains configuration files that were used for training. Specifically:

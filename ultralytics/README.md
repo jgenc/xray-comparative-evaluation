@@ -19,11 +19,10 @@
 </div>
 <br>
 
-# Jorgen's fork
-
-Commit hash is 765b98f44eb662c012e3470546bf95ea39345ee3, and the link is https://github.com/ultralytics/ultralytics/tree/765b98f44eb662c012e3470546bf95ea39345ee3
-
-At some point I am going to create a fork, not now though.
+> [!NOTE]
+> Commit hash is 765b98f44eb662c012e3470546bf95ea39345ee3, and the link is https://github.com/ultralytics/ultralytics/tree/765b98f44eb662c012e3470546bf95ea39345ee3
+> 
+> More details in [CHANGES](./CHANGES.md).
 
 [Ultralytics](https://ultralytics.com) [YOLOv8](https://github.com/ultralytics/ultralytics) is a cutting-edge, state-of-the-art (SOTA) model that builds upon the success of previous YOLO versions and introduces new features and improvements to further boost performance and flexibility. YOLOv8 is designed to be fast, accurate, and easy to use, making it an excellent choice for a wide range of object detection and tracking, instance segmentation, image classification and pose estimation tasks.
 

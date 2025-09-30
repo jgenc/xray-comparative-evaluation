@@ -1,0 +1,70 @@
+addict==2.4.0
+aliyun-python-sdk-core==2.16.0
+aliyun-python-sdk-kms==2.16.5
+brotlicffi @ file:///croot/brotlicffi_1736182461069/work
+certifi @ file:///croot/certifi_1754570635119/work/certifi
+cffi==2.0.0
+charset-normalizer @ file:///croot/charset-normalizer_1721748349566/work
+click==8.3.0
+colorama==0.4.6
+contourpy==1.3.3
+crcmod==1.7
+cryptography==46.0.1
+cycler==0.12.1
+filelock==3.14.0
+fonttools==4.60.1
+gmpy2 @ file:///croot/gmpy2_1738085463648/work
+idna @ file:///croot/idna_1714398848350/work
+Jinja2 @ file:///croot/jinja2_1741710844255/work
+jmespath==0.10.0
+kiwisolver==1.4.9
+Markdown==3.9
+markdown-it-py==4.0.0
+MarkupSafe @ file:///croot/markupsafe_1738584038848/work
+matplotlib==3.10.6
+mdurl==0.1.2
+mkl-service==2.4.0
+mkl_fft @ file:///io/mkl313/mkl_fft_1730824109137/work
+mkl_random @ file:///io/mkl313/mkl_random_1730823916628/work
+mmcv==2.2.0
+-e git+https://github.com/jgenc/xray-comparative-evaluation@6a8dd44cebb85cc4be4e6ad90810b2d23cab0613#egg=mmdet&subdirectory=dino/mmdetection
+mmengine==0.10.7
+model-index==0.1.11
+mpmath @ file:///croot/mpmath_1690848262763/work
+networkx @ file:///croot/networkx_1756709277056/work
+numpy @ file:///croot/numpy_and_numpy_base_1725470312869/work/dist/numpy-2.0.1-cp311-cp311-linux_x86_64.whl#sha256=372b9067cf9c96d8662c6f20ef49eeda43f0f8d2f074820224c954d8d8fae7bc
+opencv-python==4.12.0.88
+opendatalab==0.0.10
+openmim==0.3.9
+openxlab==0.1.2
+ordered-set==4.1.0
+oss2==2.17.0
+packaging==24.2
+pandas==2.3.3
+pillow @ file:///croot/pillow_1752524526621/work
+platformdirs==4.4.0
+pycocotools==2.0.10
+pycparser @ file:///home/task_175749606196006/conda-bld/pycparser_1757496076770/work
+pycryptodome==3.23.0
+Pygments==2.19.2
+pyparsing==3.2.5
+PySocks @ file:///work/ci_py311/pysocks_1676822712504/work
+python-dateutil==2.9.0.post0
+pytz==2023.4
+PyYAML @ file:///croot/pyyaml_1728657952215/work
+requests==2.28.2
+rich==13.4.2
+scipy==1.16.2
+shapely==2.1.2
+six==1.17.0
+sympy @ file:///croot/sympy_1756713465822/work
+tabulate==0.9.0
+termcolor==3.1.0
+terminaltables==3.1.10
+torch==2.1.1
+torchvision==0.16.1
+tqdm==4.65.2
+typing_extensions @ file:///croot/typing_extensions_1756280817316/work
+tzdata==2025.2
+urllib3==1.26.20
+yapf==0.43.0

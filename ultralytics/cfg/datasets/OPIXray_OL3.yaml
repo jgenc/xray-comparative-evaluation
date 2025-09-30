@@ -1,0 +1,15 @@
+path: /your/path/to/OPIXray/coco
+train: images/train 
+val: images/test_knife-3
+
+# True test set is never utilized for some reason, I need to manually rename
+# the test dataset as validation set
+test: images/test_knife-3
+
+# Classes
+names:
+  0: Folding_Knife
+  1: Straight_Knife
+  2: Scissor
+  3: Utility_Knife
+  4: Multi-tool_Knife

@@ -1,0 +1,20 @@
+# Paths
+path: /your/path/to/CLCXray
+train: images/train
+val: images/val
+test: images/test 
+
+# Classes
+names:
+  0: blade
+  1: scissors
+  2: knife
+  3: dagger
+  4: SwissArmyKnife
+  5: PlasticBottle
+  6: Cans
+  7: VacuumCup
+  8: GlassBottle
+  9: CartonDrinks
+  10: Tin
+  11: SprayCans

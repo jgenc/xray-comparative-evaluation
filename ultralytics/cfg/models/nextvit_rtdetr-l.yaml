@@ -1,0 +1,84 @@
+# Ultralytics YOLO 🚀, AGPL-3.0 license
+# RT-DETR-l object detection model with P3-P5 outputs. For details see https://docs.ultralytics.com/models/rtdetr
+
+# Parameters
+nc: 80  # number of classes
+scales: # model compound scaling constants, i.e. 'model=yolov8n-cls.yaml' will call yolov8-cls.yaml with scale 'n'
+  # [depth, width, max_channels]
+  l: [1.00, 1.00, 1024]
+
+backbone:
+  # [from, repeats, module, args]
+  # - [-1, 1, HGStem, [32, 48]]  # 0-P2/4 -- 0
+  # - [-1, 6, HGBlock, [48, 128, 3]]  # stage 1 -- 1
+
+  # - [-1, 1, DWConv, [128, 3, 2, 1, False]]  # 2-P3/8 -- 2
+  # - [-1, 6, HGBlock, [96, 512, 3]]  # stage 2 -- 3
+
+  # - [-1, 1, DWConv, [512, 3, 2, 1, False]]  # 4-P3/16 -- 4
+  # - [-1, 6, HGBlock, [192, 1024, 5, True, False]]  # cm, c2, k, light, shortcut -- 5
+  # - [-1, 6, HGBlock, [192, 1024, 5, True, True]] -- 6
+  # - [-1, 6, HGBlock, [192, 1024, 5, True, True]]  # stage 3 -- 7
+
+  # - [-1, 1, DWConv, [1024, 3, 2, 1, False]]  # 8-P4/32 -- 8
+  # - [-1, 6, HGBlock, [384, 2048, 5, True, False]]  # stage 4 -- 9§
+
+  - [-1, 1, ConvBNReLU, [3, 64, 3, 2]]  # 0 - Stem
+  - [-1, 1, ConvBNReLU, [64, 32, 3, 1]] # 1 - Stem
+  - [-1, 1, ConvBNReLU, [32, 64, 3, 1]] # 2 - Stem
+  - [-1, 1, ConvBNReLU, [64, 64, 3, 2]] # 3 - Stem
+
+  - [-1, 1, NCB, [64, 96, 1, 0.0, 0, 32]] # 4 - Stage 1 NCB[0]
+  - [-1, 1, NCB, [96, 96, 1, 0.005263158120214939, 0, 32]] # 5 - Stage 1 NCB[1]
+  - [-1, 1, NCB, [96, 96, 1, 0.010526316240429878, 0, 32]] # 6 - Stage 1 NCB[2]
+
+  - [-1, 1, NCB, [96, 192, 2, 0.015789475291967392, 0, 32]] # 7 - Stage 2 NCB[0]
+  - [-1, 1, NCB, [192, 192, 1, 0.021052632480859756, 0, 32]] # 8 - Stage 2 NCB[1]
+  - [-1, 1, NCB, [192, 192, 1, 0.02631578966975212, 0, 32]] # 9 - Stage 2 NCB[2]
+  - [-1, 1, NTB, [192, 256, 0.031578950583934784, 1, 4, 2, 32, 0.75, 0, 0]] # 10 - Stage 2 NTB[0]
+
+  - [-1, 1, NCB, [256, 384, 2, 0.03684210777282715, 0, 32]] # 11 - Stage 3 NCB[0] - Stride 2
+  - [-1, 1, NCB, [384, 384, 1, 0.04210526496171951, 0, 32]] # 12 - Stage 3 NCB[1]
+  - [-1, 1, NCB, [384, 384, 1, 0.04736842215061188, 0, 32]] # 13 - Stage 3 NCB[2]
+  - [-1, 1, NCB, [384, 384, 1, 0.05263157933950424, 0, 32]] # 14 - Stage 3 NCB[3]
+  - [-1, 1, NTB, [384, 512, 0.057894736528396606, 1, 2, 2, 32, 0.75, 0, 0]] # 15 - Stage 3 NTB[0]
+  - [-1, 1, NCB, [512, 384, 1, 0.06315789371728897, 0, 32]] # 16 - Stage 3 NCB[0]
+  - [-1, 1, NCB, [384, 384, 1, 0.06842105090618134, 0, 32]] # 17 - Stage 3 NCB[1]
+  - [-1, 1, NCB, [384, 384, 1, 0.0736842080950737, 0, 32]] # 18 - Stage 3 NCB[2]
+  - [-1, 1, NCB, [384, 384, 1, 0.07894736528396606, 0, 32]] # 19 - Stage 3 NCB[3]
+  - [-1, 1, NTB, [384, 512, 0.08421052992343903, 1, 2, 2, 32, 0.75, 0, 0]] # 20 - Stage 3 NTB[0]
+
+  - [-1, 1, NCB, [512, 768, 2, 0.08947368711233139, 0, 32]] # 21 - Stage 4 NCB[1]
+  - [-1, 1, NCB, [768, 768, 1, 0.09473684430122375, 0, 32]] # 22 - Stage 4 NCB[2]
+  - [-1, 1, NTB, [768, 1024, 0.10000000149011612, 1, 1, 2, 32, 0.75, 0, 0]] # 23 - Stage 4 NTB[0]
+
+head:
+  - [-1, 1, Conv, [256, 1, 1, None, 1, 1, False]]  # 10 input_proj.2 - 24
+  - [-1, 1, AIFI, [1024, 8]] # 25
+  - [-1, 1, Conv, [256, 1, 1]]  # 12, Y5, lateral_convs.0 - 26
+
+  - [-1, 1, nn.Upsample, [None, 2, 'nearest']] # 27
+  # - [7, 1, Conv, [256, 1, 1, None, 1, 1, False]]  # 14 input_proj.1
+  - [19, 1, Conv, [256, 1, 1, None, 1, 1, False]]  # 14 input_proj.1 - 28
+  - [[-2, -1], 1, Concat, [1]] # 29
+  - [-1, 3, RepC3, [256]]  # 16, fpn_blocks.0 - 30
+  - [-1, 1, Conv, [256, 1, 1]]  # 17, Y4, lateral_convs.1 - 31
+
+  - [-1, 1, nn.Upsample, [None, 2, 'nearest']] # 32
+  # - [3, 1, Conv, [256, 1, 1, None, 1, 1, False]]  # 19 input_proj.0
+  - [9, 1, Conv, [256, 1, 1, None, 1, 1, False]]  # 19 input_proj.0 - 33
+  - [[-2, -1], 1, Concat, [1]]  # cat backbone P4 - 34
+  - [-1, 3, RepC3, [256]]  # X3 (21), fpn_blocks.1 - 35
+
+  - [-1, 1, Conv, [256, 3, 2]]  # 22, downsample_convs.0 - 36
+  # - [[-1, 17], 1, Concat, [1]]  # cat Y4
+  - [[-1, 31], 1, Concat, [1]]  # cat Y4 - 37
+  - [-1, 3, RepC3, [256]]  # F4 (24), pan_blocks.0 - 38
+
+  - [-1, 1, Conv, [256, 3, 2]]  # 25, downsample_convs.1 - 39
+  # - [[-1, 12], 1, Concat, [1]]  # cat Y5
+  - [[-1, 26], 1, Concat, [1]]  # cat Y5 - 40
+  - [-1, 3, RepC3, [256]]  # F5 (27), pan_blocks.1 - 41
+
+  # - [[21, 24, 27], 1, RTDETRDecoder, [nc]]  # Detect(P3, P4, P5)
+  - [[35, 38, 41], 1, RTDETRDecoder, [nc]]  # Detect(P3, P4, P5) - 42

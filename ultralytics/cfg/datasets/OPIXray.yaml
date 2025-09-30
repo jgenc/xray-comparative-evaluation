@@ -1,0 +1,13 @@
+path: /your/path/to/OPIXray/coco
+train: images/train 
+val: images/test
+
+test: images/test
+
+# Classes
+names:
+  0: Folding_Knife
+  1: Straight_Knife
+  2: Scissor
+  3: Utility_Knife
+  4: Multi-tool_Knife

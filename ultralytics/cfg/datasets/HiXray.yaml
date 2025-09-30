@@ -1,0 +1,16 @@
+# Paths
+path: /your/path/to/HiXray/coco
+train: images/train
+val: images/test
+test: images/test 
+
+# Classes
+names:
+  0: PO1
+  1: PO2
+  2: Tablet
+  3: Mobile Phone
+  4: Laptop
+  5: Cosmetics
+  6: Water
+  7: Nonmetallic Lighter

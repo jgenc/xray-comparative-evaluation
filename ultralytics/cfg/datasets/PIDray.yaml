@@ -1,0 +1,19 @@
+path: /your/path/to/PIDray/pidray
+train: images/train 
+val: images/hidden
+test: images/hidden
+
+# Classes
+names:
+  0: Baton
+  1: Pliers
+  2: Hammer
+  3: Powerbank
+  4: Scissors
+  5: Wrench
+  6: Gun
+  7: Bullet
+  8: Sprayer
+  9: HandCuffs
+  10: Knife
+  11: Lighter

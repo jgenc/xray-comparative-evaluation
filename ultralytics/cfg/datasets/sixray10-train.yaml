@@ -1,0 +1,12 @@
+path: /your/path/to/SIXray/Mode-10X-COCO
+train: images/train 
+val: images/val 
+test: images/test
+
+# Classes
+names:
+  0: Gun
+  1: Knife
+  2: Wrench
+  3: Pliers
+  4: Scissors

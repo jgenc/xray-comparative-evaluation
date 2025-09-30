@@ -1,0 +1,18 @@
+# Paths
+path: /your/path/to/EDS/coco/domain3
+train: images/train
+val: /your/path/to/EDS/coco/domain1/images/train
+test: /your/path/to/EDS/coco/domain1/images/train
+
+# Classes
+names:
+  0: plasticbottle
+  1: knife
+  2: scissor
+  3: laptop
+  4: umbrella
+  5: lighter
+  6: device
+  7: powerbank
+  8: pressure
+  9: glassbottle

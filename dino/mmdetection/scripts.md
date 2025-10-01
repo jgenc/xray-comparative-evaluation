@@ -6,7 +6,7 @@ Before the training and testing process, you should adapt the provided configura
 1. Modify all instances of `data_root` to point to the correct CLCXray path. It is strongly recommended to use absolute paths
 2. Modify all instances of `ann_file` to point to the correct COCO-style annotation file. Be aware that the `test_dataloader`, `val_dataloader` and `train_dataloader` should point to the correct annotation files. Do not replace *all* instances at once! It is strongly recommended to use absolute paths.
 3. `data_prefix` is a relative path from the `data_root` to the data files (the folder with the images). Be aware that the `test_dataloader`, `val_dataloader` and `train_dataloader` should point to the correct folder, if the folder structure is different for each case. Do not replace *all* instances at once! It is strongly recommended to use absolute paths.
-4. Although in this instance it's correct, the `classes` attribute should be changed *if you want to train using some other kind of dataset*!
+4. Although in the provided configurations it's correct, the `classes` attribute should be changed *if you want to train using some other kind of dataset*!
 5. If you are continuing training from a previous experiment, you should change `load_from` from `None` to a string pointing to the absolute path of the weights file you want to continue from.
 
 ## Training
@@ -24,7 +24,7 @@ python ./mmdetection/tools/train.py \
 * `--amp` enables the [Automatic Mixed Precision](https://docs.pytorch.org/docs/stable/amp.html) package. Can improve perfromance.
 
 
-**Distributed**
+**Distributed (Multi-GPU)**
 ```bash
 ./mmdetection/tools/dist_train.sh \
   /path/to/cfg \

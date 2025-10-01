@@ -1,0 +1,20 @@
+name: Co-DETR-test
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7
+  - pytorch=1.11.0=py3.7_cuda11.3_cudnn8.2.0_0
+  - torchvision=0.12.0=py37_cu113
+  - cudatoolkit=11.3.1
+  - numpy=1.21.6
+  - pillow=9.4.0
+  - setuptools=65.6.3
+  - pip=22.3.1
+  - wheel=0.38.4
+  - mkl=2021.4.0
+  - mkl-service=2.4.0
+  - intel-openmp
+  - pip:
+    - -r requirements.txt

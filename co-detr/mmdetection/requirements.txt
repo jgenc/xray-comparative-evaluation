@@ -1,0 +1,13 @@
+# Steps:
+# 1. Installing cuda-toolkit for CUDA 11.3 following this article: https://medium.com/towards-data-science/managing-multiple-cuda-versions-on-a-single-machine-a-comprehensive-guide-97db1b22acdc 
+#   - gcc version was not support (probably newer), so I provided the --override flag
+# 2. conda install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch
+# 3. pip install mmcv-full==1.5.0 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.11.0/index.html
+# 4. pip install -r requirements.txt
+# 5. pip install -e .
+# 6. pip install fairscale fvcore scipy timm einops torchinfo
+
+-r requirements/build.txt
+-r requirements/optional.txt
+-r requirements/runtime.txt
+-r requirements/tests.txt

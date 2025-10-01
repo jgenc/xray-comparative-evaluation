@@ -1,0 +1,1 @@
+{"config": "./projects/configs/co_dino/co_dino_5scale_swin_base_1x_coco.py", "metric": {"bbox_mAP": 0.28, "bbox_mAP_50": 0.538, "bbox_mAP_75": 0.274, "bbox_mAP_s": 0.017, "bbox_mAP_m": 0.187, "bbox_mAP_l": 0.303, "bbox_mAP_copypaste": "0.280 0.538 0.274 0.017 0.187 0.303"}}

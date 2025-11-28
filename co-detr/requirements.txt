@@ -16,3 +16,4 @@ tqdm==4.66.2
 terminaltables==3.1.10
 fvcore==0.1.5.post20221221
 yapf==0.32.0
+safetensors==0.4.2
